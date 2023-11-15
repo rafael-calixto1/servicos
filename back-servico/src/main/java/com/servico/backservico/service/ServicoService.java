@@ -12,6 +12,12 @@ public class ServicoService {
     @Autowired
     private ServicoRepository servicoRepository;
 
+    public List<Servico> buscarServicosPagamentoPendente(){
+        return servicoRepository.buscarServicosPagamentoPendente();
+    }
+    public List<Servico> buscarServicosCancelados(){
+        return servicoRepository.buscarServicosCancelados();
+    }
     public List<Servico> buscarTodos(){
         return servicoRepository.findAll();
     }
