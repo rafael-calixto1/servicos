@@ -1,6 +1,8 @@
 package com.servico.backservico.entity;
 
 import lombok.Data;
+import lombok.Getter;
+import lombok.Setter;
 
 import javax.persistence.*;
 import java.util.Date;
@@ -19,6 +21,7 @@ public class Servico {
     private Date dataTermino = new Date();
     private String descricaoServico;
     private Double valorServico;
+
     private Double valorPago;
     @Temporal(TemporalType.DATE)
     private Date dataPagamento;

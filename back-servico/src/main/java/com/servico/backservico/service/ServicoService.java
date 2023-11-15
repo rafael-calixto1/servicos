@@ -17,13 +17,22 @@ public class ServicoService {
     }
 
     public Servico inserir(Servico servico){
+        if(servico.getValorPago()==null || servico.getValorPago()==0 || servico.getDataPagamento()==null){
+            servico.setStatus("pendente");
+        }else {
+            Servico servicoBanco = servicoRepository.saveAndFlush(servico);
+            return servicoBanco;
+        }
         return servicoRepository.saveAndFlush(servico);
-            //The code bellow do the same in a different approach
-            //Servico servicoBanco = servicoRepository.save(servico);
-            //return servicoBanco;
+        //The code bellow do the same in a different approach
+        //Servico servicoBanco = servicoRepository.save(servico);
+        //return servicoBanco;
     }
 
     public Servico alterar(Servico servico){
+        if(servico.getValorPago()!=null && servico.getValorPago()>0 && servico.getDataPagamento()!=null){
+            servico.setStatus("realizado");
+        }
         return servicoRepository.saveAndFlush(servico);
     }
 
